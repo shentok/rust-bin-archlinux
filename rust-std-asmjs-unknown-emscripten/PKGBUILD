@@ -1,0 +1,34 @@
+# Maintainer: Bernhard Beschow <shentey@gmail.com>
+
+pkgbase=rust-std-asmjs-unknown-emscripten
+pkgname=$pkgbase-bin
+pkgver=1.38.0
+pkgrel=1
+pkgdesc='asmjs-unknown-emscripten target for rustc'
+arch=('i686' 'x86_64')
+url='https://www.qt.io/ide/'
+license=('GPL')
+depends=('rust')
+makedepends=('rust')
+options=('docs' '!strip' 'debug')
+source=("https://static.rust-lang.org/dist/rust-std-$pkgver-asmjs-unknown-emscripten.tar.gz")
+md5sums=('SKIP')
+
+#pkgver() {
+#    rustc --version | sed -r 's/([^-]*-g)/r\1/;s/-/./g'
+#}
+
+#prepare() {
+#}
+
+#build() {
+#}
+
+package() {
+    ${srcdir}/rust-std-$pkgver-asmjs-unknown-emscripten/install.sh --destdir=$pkgdir --prefix=/usr --disable-ldconfig
+    rm ${pkgdir}/usr/lib/rustlib/components
+    rm ${pkgdir}/usr/lib/rustlib/install.log
+    rm ${pkgdir}/usr/lib/rustlib/manifest*
+    rm ${pkgdir}/usr/lib/rustlib/rust-installer-version
+    rm ${pkgdir}/usr/lib/rustlib/uninstall.sh
+}
