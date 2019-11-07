@@ -2,7 +2,7 @@
 
 pkgbase=rust-std-wasm32-unknown-unknown
 pkgname=$pkgbase-bin
-pkgver=1.38.0
+pkgver=1.39.0
 pkgrel=1
 pkgdesc='wasm32-unknown-unknown target for rustc'
 arch=('i686' 'x86_64')
